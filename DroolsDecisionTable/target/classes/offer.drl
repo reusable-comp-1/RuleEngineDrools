@@ -1,0 +1,26 @@
+package KieRule;
+import com.indium.rules.Order;
+
+rule "SBI"
+
+when
+orderObject : Order(cardType=="SBI" && price>5000);
+then
+orderObject.setDiscount(10);
+end;
+
+rule "IOB"
+
+when
+orderObject : Order(cardType=="IOB" && price>15000);
+then
+orderObject.setDiscount(8);
+end;
+
+rule "TMB"
+
+when
+orderObject : Order(cardType=="TMB" && price>15000);
+then
+orderObject.setDiscount(15);
+end;
